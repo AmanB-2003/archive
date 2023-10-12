@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Digital Clock</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            html, body {
+            margin:0px;
+            text-align: center;
+            }
+            body {
+                display: flex;      /****  imp err ****/
+                /* background-image: url("C:\\Users\\Owner\\Downloads\\17.png"); */
+                background-image: radial-gradient(circle, #FC6F4B 12%, #E94DC7 36%, #A34BFB 60%);
+                background-repeat: no-repeat; 
+                background-size: cover;
+                overflow: hidden; 
+                height: 100vh;
+                /*min-height: 90vh; */
+            }
+
+            #main{
+                width: 100%;
+                display: flex;             /* */ 
+                align-items: center;
+                justify-content: center;    
+            }
+
+            h1{
+                font-size: 17.5vh;
+                color: white;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            </style>
+    </head>
+    <body>
+        <div id="main">
+        <h1 id="time">19:22</h1>
+        </div>
+        
+        <script>
+            setInterval(showTime,2000);   //update after every 2s
+
+function showTime() {
+    let time = new Date();
+    let hour = time.getHours();
+    let min = time.getMinutes();
+
+    hour = hour < 10 ? "0" + hour : hour ;
+    min = min < 10 ? "0" + min : min ;
+
+    let currentTime = hour + " : " + min;
+
+    //update innerHTML
+    document.getElementById("time").innerHTML = currentTime; 
+}
+
+//call function
+showTime();
+        </script>
+    </body>
+</html>
